@@ -166,7 +166,7 @@ DogApp/
 ## Enlaces del proyecto
 
 - **Repositorio GitHub:** [github.com/Ckancord33/DogApp](https://github.com/Ckancord33/DogApp)
-- **Tablero Jira:** *(Por agregar enlace del tablero del equipo)*
+- **Tablero Jira:** [Tablero Scrum — DogApp](https://correounivalle-team-lpwm25yi.atlassian.net/jira/software/projects/SCRUM/boards/1?filter=&groupBy=none&atlOrigin=eyJpIjoiNzU1MmE5YzA5MjViNGQ3ZjhmMTFlNTkzYWZhMGQ1YTAiLCJwIjoiaiJ9)
 - **Docente:** Ing. Walter Medina
 
 ---
