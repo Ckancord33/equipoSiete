@@ -14,11 +14,11 @@ This document defines the official color tokens for **DogApp** in [`app/src/main
 
 | Resource Name | Hex (ARGB) | Visual Swatch | Semantic Role & Usage |
 |---|---|---|---|
-| `white` | `#FFFFFFFF` | White | Toolbar/header titles, brand title `"DogApp"`, icon tints inside FABs, enabled primary button text (`"Guardar Cita"`, `"Editar Cita"`). |
+| `white` | `#FFFFFFFF` | White | `HU 2.0` screen background (criterion 2: white background), toolbar/header titles, brand title `"DogApp"`, icon tints inside FABs, enabled primary button text (`"Guardar Cita"`, `"Editar Cita"`). |
 | `black` | `#FF000000` | Black | High-contrast titles when required (e.g., breed title in `HU 4.0` detail card). |
 | `home_header_background` | `#FF242B30` | Dark Slate Gray | Login screen full background (`HU 1.0`) and curved dark headers/toolbars (`HU 2.0`, `HU 3.0`, `HU 4.0`, `HU 5.0`). |
-| `home_background` | `#FFFAF9FB` | Off-White | Main screen background behind cards/forms (`HU 2.0`, `HU 3.0`, `HU 4.0`, `HU 5.0`), allowing white cards to stand out with elevation. |
-| `home_card_background` | `#FFFFFFFF` | Pure White | Elevated rounded cards (`MaterialCardView`) in `HU 2.0` list items and `HU 4.0` photo/detail cards. |
+| `home_background` | `#FFFAF9FB` | Off-White | Main screen background behind cards/forms (`HU 3.0`, `HU 4.0`, `HU 5.0`), allowing white cards to stand out with elevation. |
+| `home_card_background` | `#FFFFFFFF` | Pure White | Elevated rounded cards (`CardView`) in `HU 2.0` list items and `HU 4.0` photo/detail cards. |
 | `accent_pink` | `#FFF05861` | Coral Pink | Primary accent (`#F05861` from HUs): Home `+` FAB, appointment turn `#ID`, toolbar back arrows, detail divider line, delete FAB, and enabled `"Guardar Cita"` / `"Editar Cita"` buttons. |
 | `accent_pink_disabled` | `#FFF5A3A8` | Muted Pink | Disabled state for primary form buttons (`"Guardar Cita"`, `"Editar Cita"`) when required fields are incomplete. |
 | `text_primary` | `#FF333333` | Charcoal | Primary body/card titles (e.g., pet name in `HU 2.0`, input text). |
@@ -39,9 +39,9 @@ This document defines the official color tokens for **DogApp** in [`app/src/main
 
 ### HU 2.0 — Home Administrador de Citas (Reference Layout)
 Implemented in [`fragment_home.xml`](app/src/main/res/layout/fragment_home.xml) and [`item_appointment.xml`](app/src/main/res/layout/item_appointment.xml):
-- **Screen background:** `@color/home_background` (`#FAF9FB`).
+- **Screen background:** `@color/white` (`#FFFFFF`), as required by HU 2.0 criterion 2.
 - **Curved header (`bg_home_header.xml`):** `@color/home_header_background` (`#242B30`) with `bottomLeftRadius="72dp"`.
-- **Header texts (`"Administrador\nde citas"` & `"DogApp"`):** `@color/white` bold.
+- **Header texts (`"Administrador\nde Citas"` & `"DogApp"`):** `@color/white` bold.
 - **Appointment card:** `@color/home_card_background` (`#FFFFFF`) with `cardCornerRadius="12dp"` and `cardElevation="3dp"`.
 - **Pet name:** `@color/text_primary` (`#333333`) bold.
 - **Symptom description:** `@color/text_secondary` (`#666666`).
