@@ -120,11 +120,12 @@ erDiagram
 | `org.jetbrains.kotlinx:kotlinx-coroutines-android` | `1.10.2` | Corrutinas (`withContext(Dispatchers.IO)` en el Repository) |
 | `androidx.navigation:navigation-fragment-ktx` / `navigation-ui-ktx` | `2.9.0` | Navigation Component (`nav_graph.xml`, `NavHostFragment` en `MainActivity`) |
 | `androidx.lifecycle:lifecycle-viewmodel-ktx` / `lifecycle-livedata-ktx` | `2.9.0` | `AppointmentViewModel` (`AndroidViewModel`, `viewModelScope`, `LiveData`) |
+| `com.github.bumptech.glide:glide` | `4.16.0` | Carga de la imagen circular de la mascota en los ítems de `HU 2.0` |
 | `junit:junit` | `4.13.2` | Pruebas unitarias locales |
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Retrofit + Gson/Moshi, `androidx.biometric`, Lottie (`lottie-android`) y carga de imágenes (Glide/Coil).
+> **Por integrar durante el Sprint 1:** Retrofit + Gson/Moshi, `androidx.biometric`, Lottie (`lottie-android`).
 
 ---
 
