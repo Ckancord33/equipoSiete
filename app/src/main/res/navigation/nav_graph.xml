@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    TODO (HU 1.0 - Login): add the login fragment and set it as app:startDestination.
+    Its action to Home MUST remove the login from the back stack, so the back button
+    on Home closes the app instead of returning to login (HU 2.0 - Criterion 1):
+
+    <action
+        android:id="@+id/action_loginFragment_to_homeFragment"
+        app:destination="@id/homeFragment"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.dogapp.view.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+
+        <!--
+            TODO (HU 3.0 - New Appointment): add the new appointment fragment and this action.
+            Used by the FAB in HomeFragment.controladores().
+            <action
+                android:id="@+id/action_homeFragment_to_newAppointmentFragment"
+                app:destination="@id/newAppointmentFragment" />
+
+            TODO (HU 4.0 - Appointment Detail): add the detail fragment and this action.
+            Used by the item click in AppointmentViewHolder.setItemAppointment().
+            <action
+                android:id="@+id/action_homeFragment_to_detailFragment"
+                app:destination="@id/detailFragment" />
+        -->
+    </fragment>
+
+</navigation>
