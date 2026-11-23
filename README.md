@@ -156,6 +156,7 @@ DogApp/
 │   └── wrapper/                      # Gradle Wrapper (9.5.0)
 ├── AGENTS.md                         # Reglas y convenciones del proyecto
 ├── COLOR_PALETTE.md                  # Paleta de colores oficial y uso por HU
+├── COURSE_STYLE_GUIDE.md             # Temas vistos en clase y estilo de código del profesor (guía para IAs)
 ├── build.gradle.kts                  # Configuración raíz de Gradle
 ├── settings.gradle.kts               # Declaración de módulos (:app)
 ├── LICENSE                           # Licencia MIT
