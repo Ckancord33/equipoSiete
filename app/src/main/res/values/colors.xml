@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base neutrals -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Brand & surfaces -->
+    <color name="home_header_background">#FF242B30</color>
+    <color name="home_background">#FFFAF9FB</color>
+    <color name="home_card_background">#FFFFFFFF</color>
+    <color name="accent_pink">#FFF05861</color>
+    <color name="accent_pink_disabled">#FFF5A3A8</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FF333333</color>
+    <color name="text_secondary">#FF666666</color>
+
+    <!-- Form & detail accents -->
+    <color name="input_focus_purple">#FF6200EE</color>
+    <color name="input_stroke_default">#FFBDBDBD</color>
+    <color name="action_edit_dark_blue">#FF1B263B</color>
 </resources>
