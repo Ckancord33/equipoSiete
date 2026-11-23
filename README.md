@@ -118,11 +118,12 @@ erDiagram
 | `androidx.room:room-runtime` / `room-ktx` | `2.8.4` | Base de datos local SQLite (`Appointment`, `AppointmentDao`, `AppointmentDB`) |
 | `androidx.room:room-compiler` (KSP) | `2.8.4` | Generación de código de Room |
 | `org.jetbrains.kotlinx:kotlinx-coroutines-android` | `1.10.2` | Corrutinas (`withContext(Dispatchers.IO)` en el Repository) |
+| `androidx.navigation:navigation-fragment-ktx` / `navigation-ui-ktx` | `2.9.0` | Navigation Component (`nav_graph.xml`, `NavHostFragment` en `MainActivity`) |
 | `junit:junit` | `4.13.2` | Pruebas unitarias locales |
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Retrofit + Gson/Moshi, Jetpack Navigation (`navigation-fragment-ktx`, `navigation-ui-ktx`), Lifecycle (`ViewModel`, `LiveData`/`StateFlow`), `androidx.biometric`, Lottie (`lottie-android`) y carga de imágenes (Glide/Coil).
+> **Por integrar durante el Sprint 1:** Retrofit + Gson/Moshi, Lifecycle (`ViewModel`, `LiveData`/`StateFlow`), `androidx.biometric`, Lottie (`lottie-android`) y carga de imágenes (Glide/Coil).
 
 ---
 
@@ -179,11 +180,11 @@ DogApp/
 │       │   │   ├── adapter/          # Adaptadores de RecyclerView
 │       │   │   ├── fragment/         # Fragments de navegación
 │       │   │   ├── viewholder/       # ViewHolders de RecyclerView
-│       │   │   └── MainActivity.kt   # Activity principal (Hello World con Data Binding)
+│       │   │   └── MainActivity.kt   # Activity principal (aloja el NavHostFragment)
 │       │   └── viewmodel/            # ViewModels (MVVM)
 │       └── res/                      # Recursos (layouts, drawables, mipmaps, navigation, values, xml)
 │           ├── layout/               # Layouts XML con Data Binding
-│           └── navigation/           # Carpeta para grafos de navegación
+│           └── navigation/           # nav_graph.xml (grafo de navegación; inicia en HomeFragment)
 ├── gradle/
 │   ├── libs.versions.toml            # Catálogo centralizado de versiones
 │   └── wrapper/                      # Gradle Wrapper (9.5.0)
