@@ -60,6 +60,35 @@ Resumen rápido del alcance funcional definido para el proyecto:
 - **Listado de razas:** `GET https://dog.ceo/api/breeds/list/all`
 - **Imagen por raza / aleatoria:** `GET https://dog.ceo/api/breeds/image/random` (y endpoint por raza seleccionada)
 
+### Modelo de datos (Room / SQLite)
+
+Base de datos local `app_data.db` con una única tabla `Appointment`, que almacena cada cita creada en `HU 3.0` y editada en `HU 5.0`.
+
+```mermaid
+erDiagram
+    APPOINTMENT {
+        INTEGER id PK "Turno de atención (autoGenerate)"
+        TEXT petName "Nombre de la mascota (máx. 15)"
+        TEXT breed "Raza (Dog CEO breeds/list/all)"
+        TEXT ownerName "Nombre del propietario (máx. 30)"
+        TEXT phone "Teléfono (solo números, máx. 10)"
+        TEXT symptom "Síntoma seleccionado de la lista"
+        TEXT imageUrl "Imagen de la raza (Dog CEO image/random)"
+    }
+```
+
+| Columna | Tipo | Restricción | Origen (HU) |
+|---|---|---|---|
+| `id` | `INTEGER` | `PRIMARY KEY`, autoincremental | Turno mostrado como `#ID` en `HU 2.0` |
+| `petName` | `TEXT` | `NOT NULL`, máx. 15 caracteres | `HU 3.0` criterio 2 |
+| `breed` | `TEXT` | `NOT NULL` | `HU 3.0` criterio 3 |
+| `ownerName` | `TEXT` | `NOT NULL`, máx. 30 caracteres | `HU 3.0` criterio 4 |
+| `phone` | `TEXT` | `NOT NULL`, solo dígitos, máx. 10 | `HU 3.0` criterio 5 |
+| `symptom` | `TEXT` | `NOT NULL`, valor de la lista de síntomas | `HU 3.0` criterio 6 |
+| `imageUrl` | `TEXT` | `NOT NULL` | Imagen de la raza para los ítems de `HU 2.0` y `HU 4.0` |
+
+> Los límites de longitud y el formato numérico se validan en la UI; Room solo persiste los valores. `phone` se guarda como `TEXT` para conservar ceros iniciales.
+
 ---
 
 ## Stack y Versiones del Proyecto
@@ -75,6 +104,7 @@ Resumen rápido del alcance funcional definido para el proyecto:
 | `minSdk` | `24` (Android 7.0) | `app/build.gradle.kts` |
 | App Version | `1.0` (`versionCode = 1`) | `app/build.gradle.kts` |
 | Data Binding | Habilitado (`dataBinding = true`) | `app/build.gradle.kts` |
+| KSP (Kotlin Symbol Processing) | `2.3.4` | `gradle/libs.versions.toml` (compilador de Room) |
 
 ### Dependencias configuradas actualmente (`libs.versions.toml`)
 
@@ -85,11 +115,14 @@ Resumen rápido del alcance funcional definido para el proyecto:
 | `com.google.android.material:material` | `1.14.0` | Material Design (`TextInputLayout`, `FAB`, `CardView`) |
 | `androidx.activity:activity-ktx` | `1.13.0` | Soporte Edge-to-Edge y Activities en Kotlin |
 | `androidx.constraintlayout:constraintlayout` | `2.2.2` | Layouts responsivos |
+| `androidx.room:room-runtime` / `room-ktx` | `2.8.4` | Base de datos local SQLite (`Appointment`, `AppointmentDao`, `AppointmentDB`) |
+| `androidx.room:room-compiler` (KSP) | `2.8.4` | Generación de código de Room |
+| `org.jetbrains.kotlinx:kotlinx-coroutines-android` | `1.10.2` | Corrutinas (`withContext(Dispatchers.IO)` en el Repository) |
 | `junit:junit` | `4.13.2` | Pruebas unitarias locales |
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Room (`SQLite`), Retrofit + Gson/Moshi, Jetpack Navigation (`navigation-fragment-ktx`, `navigation-ui-ktx`), Lifecycle (`ViewModel`, `LiveData`/`StateFlow`), `androidx.biometric`, Lottie (`lottie-android`) y carga de imágenes (Glide/Coil).
+> **Por integrar durante el Sprint 1:** Retrofit + Gson/Moshi, Jetpack Navigation (`navigation-fragment-ktx`, `navigation-ui-ktx`), Lifecycle (`ViewModel`, `LiveData`/`StateFlow`), `androidx.biometric`, Lottie (`lottie-android`) y carga de imágenes (Glide/Coil).
 
 ---
 
@@ -156,6 +189,7 @@ DogApp/
 │   └── wrapper/                      # Gradle Wrapper (9.5.0)
 ├── AGENTS.md                         # Reglas y convenciones del proyecto
 ├── COLOR_PALETTE.md                  # Paleta de colores oficial y uso por HU
+├── COURSE_STYLE_GUIDE.md             # Temas vistos en clase y estilo de código del profesor (guía para IAs)
 ├── build.gradle.kts                  # Configuración raíz de Gradle
 ├── settings.gradle.kts               # Declaración de módulos (:app)
 ├── LICENSE                           # Licencia MIT

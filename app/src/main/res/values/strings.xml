@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">DogApp</string>
-    <string name="home_header_title">Administrador\nde citas</string>
+    <string name="home_header_title">Administrador\nde Citas</string>
     <string name="home_brand_name">DogApp</string>
     <string name="home_dog_logo_description">Logo de DogApp</string>
     <string name="home_add_appointment_description">Agregar nueva cita</string>
