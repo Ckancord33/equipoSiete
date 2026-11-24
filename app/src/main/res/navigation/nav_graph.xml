@@ -21,6 +21,21 @@
         android:id="@+id/homeFragment"
         android:name="com.example.dogapp.view.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+
+        <!--
+            TODO (HU 3.0 - New Appointment): add the new appointment fragment and this action.
+            Used by the FAB in HomeFragment.controladores().
+            <action
+                android:id="@+id/action_homeFragment_to_newAppointmentFragment"
+                app:destination="@id/newAppointmentFragment" />
+
+            TODO (HU 4.0 - Appointment Detail): add the detail fragment and this action.
+            Used by the item click in AppointmentViewHolder.setItemAppointment().
+            <action
+                android:id="@+id/action_homeFragment_to_detailFragment"
+                app:destination="@id/detailFragment" />
+        -->
+    </fragment>
 
 </navigation>

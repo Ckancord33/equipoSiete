@@ -48,20 +48,23 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
-    // Coroutines
-    implementation(libs.kotlinx.coroutines.android)
-
     // Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    // Lottie
-    implementation(libs.lottie)
-
-    // Lifecycle & Fragment
+    // Lifecycle & Fragment (ViewModel + LiveData)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.fragment.ktx)
+
+    // Glide
+    implementation(libs.glide)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Lottie
+    implementation(libs.lottie)
 
     // Biometric
     implementation(libs.androidx.biometric)

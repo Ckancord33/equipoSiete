@@ -97,14 +97,14 @@ erDiagram
 
 | Herramienta / SDK | Versión | Origen |
 |---|---|---|
-| Gradle | `9.5.0` | `gradle-wrapper.properties` |
+| Gradle | `9.9.2` | `gradle-wrapper.properties` |
 | Android Gradle Plugin (AGP) | `9.3.3` | `gradle/libs.versions.toml` |
 | Java Compatibility | `11` | `app/build.gradle.kts` |
 | `compileSdk` / `targetSdk` | `37` | `app/build.gradle.kts` |
 | `minSdk` | `24` (Android 7.0) | `app/build.gradle.kts` |
 | App Version | `1.0` (`versionCode = 1`) | `app/build.gradle.kts` |
 | Data Binding | Habilitado (`dataBinding = true`) | `app/build.gradle.kts` |
-| KSP (Kotlin Symbol Processing) | `2.3.4` | `gradle/libs.versions.toml` (compilador de Room) |
+| KSP (Kotlin Symbol Processing) | `2.3.14` | `gradle/libs.versions.toml` (compilador de Room) |
 
 ### Dependencias configuradas actualmente (`libs.versions.toml`)
 
@@ -115,25 +115,26 @@ erDiagram
 | `com.google.android.material:material` | `1.14.0` | Material Design (`TextInputLayout`, `FAB`, `CardView`) |
 | `androidx.activity:activity-ktx` | `1.13.0` | Soporte Edge-to-Edge y Activities en Kotlin |
 | `androidx.constraintlayout:constraintlayout` | `2.2.2` | Layouts responsivos |
-| `androidx.room:room-runtime` / `room-ktx` | `2.8.4` | Base de datos local SQLite (`Appointment`, `AppointmentDao`, `AppointmentDB`) |
-| `androidx.room:room-compiler` (KSP) | `2.8.4` | Generación de código de Room |
-| `org.jetbrains.kotlinx:kotlinx-coroutines-android` | `1.10.2` | Corrutinas (`withContext(Dispatchers.IO)` en el Repository) |
-| `androidx.navigation:navigation-fragment-ktx` / `navigation-ui-ktx` | `2.10.2` | Navegación entre Fragments (`nav_graph.xml`) |
-| `com.airbnb.android:lottie` | `6.7.1` | Animación Lottie de huella en `HU 1.0` |
-| `androidx.lifecycle:lifecycle-viewmodel-ktx` / `lifecycle-livedata-ktx` | `2.11.1` | ViewModel (`viewModelScope`) y `LiveData` en arquitectura MVVM |
+| `androidx.room:room-runtime` / `room-ktx` | `2.8.5` | Base de datos local SQLite (`Appointment`, `AppointmentDao`, `AppointmentDB`) |
+| `androidx.room:room-compiler` (KSP) | `2.8.5` | Generación de código de Room |
+| `org.jetbrains.kotlinx:kotlinx-coroutines-android` | `1.11.0` | Corrutinas (`withContext(Dispatchers.IO)` en el Repository) |
+| `androidx.navigation:navigation-fragment-ktx` / `navigation-ui-ktx` | `2.10.2` | Navigation Component (`nav_graph.xml`, `NavHostFragment` en `MainActivity`) |
+| `androidx.lifecycle:lifecycle-viewmodel-ktx` / `lifecycle-livedata-ktx` | `2.11.1` | ViewModels (`AndroidViewModel`, `viewModelScope`, `LiveData`) |
 | `androidx.fragment:fragment-ktx` | `1.9.1` | Extensiones para Fragments (`by viewModels()`) |
+| `com.github.bumptech.glide:glide` | `5.0.9` | Carga de la imagen circular de la mascota en los ítems de `HU 2.0` (5.0.10 requiere kotlin-stdlib 2.4, incompatible con el compilador Kotlin 2.2 que trae AGP) |
+| `com.airbnb.android:lottie` | `6.7.1` | Animación Lottie de huella en `HU 1.0` |
 | `androidx.biometric:biometric` | `1.1.0` | Autenticación con biometría dactilar (`BiometricPrompt`) en `HU 1.0` |
 | `junit:junit` | `4.13.2` | Pruebas unitarias locales |
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Retrofit + Gson y carga de imágenes (Glide).
+> **Por integrar durante el Sprint 1:** Retrofit + Gson y las pantallas/lógica pendiente de `HU 1.0` (biometría e ícono) y `HU 3.0`–`HU 5.0`.
 
 ---
 
 ## Requisitos previos e Inicio rápido
 
-- **Android Studio** actualizado (compatible con AGP `9.3.3` y Gradle `9.5.0`)
+- **Android Studio** actualizado (compatible con AGP `9.3.3` y Gradle `9.9.2`)
 - **JDK 11+**
 - Dispositivo físico o emulador Android con **API 24+** (recomendado configurar huella digital en el emulador para probar `HU 1.0`)
 
@@ -181,19 +182,19 @@ DogApp/
 │       │   ├── repository/           # Repositorios de datos
 │       │   ├── utils/                # Utilidades y constantes
 │       │   ├── view/                 # Capa de interfaz de usuario
-│       │   │   ├── adapter/          # Adaptadores de RecyclerView
+│       │   │   ├── adapter/          # Adaptadores de RecyclerView (`AppointmentAdapter`)
 │       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`)
-│       │   │   ├── viewholder/       # ViewHolders de RecyclerView
-│       │   │   └── MainActivity.kt   # Activity principal (host de `NavHostFragment`)
-│       │   └── viewmodel/            # ViewModels (MVVM)
+│       │   │   ├── viewholder/       # ViewHolders de RecyclerView (`AppointmentViewHolder`)
+│       │   │   └── MainActivity.kt   # Activity principal (aloja el NavHostFragment)
+│       │   └── viewmodel/            # ViewModels (MVVM, `AppointmentViewModel`)
 │       └── res/                      # Recursos (layouts, drawables, font, mipmaps, navigation, raw, values, xml)
 │           ├── font/                 # Fuentes tipográficas externas (`lilita_one_regular.ttf`)
 │           ├── layout/               # Layouts XML con Data Binding
-│           ├── navigation/           # Grafo de navegación (`nav_graph.xml`)
+│           ├── navigation/           # nav_graph.xml (grafo de navegación; inicia en LoginFragment)
 │           └── raw/                  # Animaciones Lottie JSON (`fingerprint_biometric_scan.json`)
 ├── gradle/
 │   ├── libs.versions.toml            # Catálogo centralizado de versiones
-│   └── wrapper/                      # Gradle Wrapper (9.5.0)
+│   └── wrapper/                      # Gradle Wrapper (9.9.2)
 ├── AGENTS.md                         # Reglas y convenciones del proyecto
 ├── COLOR_PALETTE.md                  # Paleta de colores oficial y uso por HU
 ├── COURSE_STYLE_GUIDE.md             # Temas vistos en clase y estilo de código del profesor (guía para IAs)
