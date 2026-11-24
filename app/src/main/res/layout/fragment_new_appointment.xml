@@ -150,12 +150,39 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
+                    android:backgroundTint="@color/text_primary"
                     android:contentDescription="@string/new_appointment_symptoms_description"
                     android:minHeight="48dp"
+                    android:popupBackground="@color/white"
                     android:spinnerMode="dropdown"
+                    android:theme="@style/ThemeOverlay.DogApp.Spinner"
                     app:layout_constraintEnd_toStartOf="@id/glSpinnerEnd"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tilPhone" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveAppointment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:enabled="false"
+                    android:minWidth="184dp"
+                    android:minHeight="52dp"
+                    android:paddingHorizontal="28dp"
+                    android:text="@string/new_appointment_save_button"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="15sp"
+                    app:backgroundTint="@color/accent_pink_disabled"
+                    app:cornerRadius="28dp"
+                    app:icon="@drawable/ic_save"
+                    app:iconGravity="textStart"
+                    app:iconPadding="10dp"
+                    app:iconSize="20dp"
+                    app:iconTint="@color/text_primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spSymptoms" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
