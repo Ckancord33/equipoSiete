@@ -129,7 +129,7 @@ erDiagram
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Pantalla y flujo de `HU 5.0` (Ventana Editar Cita).
+> **Sprint 1 completado:** Integradas exitosamente todas las Historias de Usuario (HU 1.0 a HU 5.0).
 
 ---
 
@@ -184,7 +184,7 @@ DogApp/
 │       │   ├── utils/                # Utilidades y constantes (`Constants`)
 │       │   ├── view/                 # Capa de interfaz de usuario
 │       │   │   ├── adapter/          # Adaptadores de RecyclerView (`AppointmentAdapter`)
-│       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`, `NewAppointmentFragment`, `DetailFragment`)
+│       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`, `NewAppointmentFragment`, `DetailFragment`, `EditAppointmentFragment`)
 │       │   │   ├── viewholder/       # ViewHolders de RecyclerView (`AppointmentViewHolder`)
 │       │   │   └── MainActivity.kt   # Activity principal (aloja el NavHostFragment)
 │       │   ├── viewmodel/            # ViewModels (MVVM, `AppointmentViewModel`, `LoginViewModel`)
