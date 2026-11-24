@@ -41,4 +41,9 @@
     <string name="detail_delete_dialog_confirm">Eliminar</string>
     <string name="detail_delete_dialog_cancel">Cancelar</string>
     <string name="detail_delete_success">Cita eliminada correctamente</string>
+
+    <!-- Editar Cita (HU 5.0) -->
+    <string name="edit_appointment_title">Editar Cita</string>
+    <string name="edit_appointment_button">Editar Cita</string>
+    <string name="edit_appointment_success">Cita actualizada correctamente</string>
 </resources>
