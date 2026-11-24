@@ -17,7 +17,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.dogapp.R
 import com.example.dogapp.databinding.FragmentEditAppointmentBinding
 import com.example.dogapp.model.Appointment
-import com.example.dogapp.utils.Constants
 import com.example.dogapp.viewmodel.AppointmentViewModel
 
 class EditAppointmentFragment : Fragment() {
@@ -39,7 +38,6 @@ class EditAppointmentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         appointment = arguments?.getSerializable("clave") as? Appointment
         setupToolbar()
-        setupSymptomsSpinner()
         precargarDatos()
         controladores()
         observerViewModel()
@@ -52,43 +50,19 @@ class EditAppointmentFragment : Fragment() {
         }
     }
 
-    private fun setupSymptomsSpinner() {
-        val adapter = ArrayAdapter(
-            binding.spSymptoms.context,
-            android.R.layout.simple_spinner_item,
-            Constants.SYMPTOMS_LIST
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spSymptoms.adapter = adapter
-    }
-
     private fun precargarDatos() {
         appointment?.let { item ->
             binding.etPetName.setText(item.petName)
-            binding.atBreed.setText(item.breed)
+            binding.atBreed.setText(item.breed, false)
             binding.etOwnerName.setText(item.ownerName)
             binding.etPhone.setText(item.phone)
-
-            val symptomIndex = Constants.SYMPTOMS_LIST.indexOf(item.symptom)
-            if (symptomIndex >= 0) {
-                binding.spSymptoms.setSelection(symptomIndex)
-            }
         }
     }
 
     private fun controladores() {
         validarDatos()
         binding.btnEditAppointment.setOnClickListener {
-            val selectedSymptom = binding.spSymptoms.selectedItem.toString()
-            if (selectedSymptom == Constants.DEFAULT_SYMPTOM) {
-                Toast.makeText(
-                    context,
-                    getString(R.string.new_appointment_select_symptom_error),
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                updateAppointment()
-            }
+            updateAppointment()
         }
     }
 
@@ -98,15 +72,13 @@ class EditAppointmentFragment : Fragment() {
         val newBreed = binding.atBreed.text.toString().trim()
         val newOwnerName = binding.etOwnerName.text.toString().trim()
         val newPhone = binding.etPhone.text.toString().trim()
-        val newSymptom = binding.spSymptoms.selectedItem.toString()
         val breedChanged = !newBreed.equals(currentAppointment.breed, ignoreCase = true)
 
         val updatedAppointment = currentAppointment.copy(
             petName = newPetName,
             breed = newBreed,
             ownerName = newOwnerName,
-            phone = newPhone,
-            symptom = newSymptom
+            phone = newPhone
         )
         binding.btnEditAppointment.isEnabled = false
         appointmentViewModel.updateAppointment(updatedAppointment, breedChanged) {
