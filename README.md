@@ -119,13 +119,16 @@ erDiagram
 | `androidx.room:room-compiler` (KSP) | `2.8.5` | Generación de código de Room |
 | `org.jetbrains.kotlinx:kotlinx-coroutines-android` | `1.11.0` | Corrutinas (`withContext(Dispatchers.IO)` en el Repository) |
 | `androidx.navigation:navigation-fragment-ktx` / `navigation-ui-ktx` | `2.10.2` | Navigation Component (`nav_graph.xml`, `NavHostFragment` en `MainActivity`) |
-| `androidx.lifecycle:lifecycle-viewmodel-ktx` / `lifecycle-livedata-ktx` | `2.11.1` | `AppointmentViewModel` (`AndroidViewModel`, `viewModelScope`, `LiveData`) |
+| `androidx.lifecycle:lifecycle-viewmodel-ktx` / `lifecycle-livedata-ktx` | `2.11.1` | ViewModels (`AndroidViewModel`, `viewModelScope`, `LiveData`) |
+| `androidx.fragment:fragment-ktx` | `1.9.1` | Extensiones para Fragments (`by viewModels()`) |
 | `com.github.bumptech.glide:glide` | `5.0.9` | Carga de la imagen circular de la mascota en los ítems de `HU 2.0` (5.0.10 requiere kotlin-stdlib 2.4, incompatible con el compilador Kotlin 2.2 que trae AGP) |
+| `com.airbnb.android:lottie` | `6.7.1` | Animación Lottie de huella en `HU 1.0` |
+| `androidx.biometric:biometric` | `1.1.0` | Autenticación con biometría dactilar (`BiometricPrompt`) en `HU 1.0` |
 | `junit:junit` | `4.13.2` | Pruebas unitarias locales |
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Retrofit + Gson/Moshi, `androidx.biometric`, Lottie (`lottie-android`).
+> **Por integrar durante el Sprint 1:** Retrofit + Gson, el ícono personalizado `dogApp` de `HU 1.0` y las pantallas de `HU 3.0`–`HU 5.0`.
 
 ---
 
@@ -176,17 +179,19 @@ DogApp/
 │       ├── java/com/example/dogapp/  # Código fuente Kotlin (arquitectura MVVM)
 │       │   ├── data/                 # Capa de datos (Room DAO, Database, API)
 │       │   ├── model/                # Modelos y entidades
-│       │   ├── repository/           # Repositorios de datos
+│       │   ├── repository/           # Repositorios de datos (`AppointmentRepository`, `LoginRepository`)
 │       │   ├── utils/                # Utilidades y constantes
 │       │   ├── view/                 # Capa de interfaz de usuario
-│       │   │   ├── adapter/          # Adaptadores de RecyclerView
-│       │   │   ├── fragment/         # Fragments de navegación
-│       │   │   ├── viewholder/       # ViewHolders de RecyclerView
+│       │   │   ├── adapter/          # Adaptadores de RecyclerView (`AppointmentAdapter`)
+│       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`)
+│       │   │   ├── viewholder/       # ViewHolders de RecyclerView (`AppointmentViewHolder`)
 │       │   │   └── MainActivity.kt   # Activity principal (aloja el NavHostFragment)
-│       │   └── viewmodel/            # ViewModels (MVVM)
-│       └── res/                      # Recursos (layouts, drawables, mipmaps, navigation, values, xml)
+│       │   └── viewmodel/            # ViewModels (MVVM, `AppointmentViewModel`, `LoginViewModel`)
+│       └── res/                      # Recursos (layouts, drawables, font, mipmaps, navigation, raw, values, xml)
+│           ├── font/                 # Fuentes tipográficas externas (`lilita_one_regular.ttf`)
 │           ├── layout/               # Layouts XML con Data Binding
-│           └── navigation/           # nav_graph.xml (grafo de navegación; inicia en HomeFragment)
+│           ├── navigation/           # nav_graph.xml (grafo de navegación; inicia en LoginFragment)
+│           └── raw/                  # Animaciones Lottie JSON (`fingerprint_biometric_scan.json`)
 ├── gradle/
 │   ├── libs.versions.toml            # Catálogo centralizado de versiones
 │   └── wrapper/                      # Gradle Wrapper (9.9.2)

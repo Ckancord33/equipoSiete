@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    TODO (HU 1.0 - Login): add the login fragment and set it as app:startDestination.
-    Its action to Home MUST remove the login from the back stack, so the back button
-    on Home closes the app instead of returning to login (HU 2.0 - Criterion 1):
-
-    <action
-        android:id="@+id/action_loginFragment_to_homeFragment"
-        app:destination="@id/homeFragment"
-        app:popUpTo="@id/loginFragment"
-        app:popUpToInclusive="true" />
--->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.dogapp.view.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
