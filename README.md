@@ -183,7 +183,7 @@ DogApp/
 │       │   ├── utils/                # Utilidades y constantes
 │       │   ├── view/                 # Capa de interfaz de usuario
 │       │   │   ├── adapter/          # Adaptadores de RecyclerView (`AppointmentAdapter`)
-│       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`)
+│       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`, `NewAppointmentFragment`)
 │       │   │   ├── viewholder/       # ViewHolders de RecyclerView (`AppointmentViewHolder`)
 │       │   │   └── MainActivity.kt   # Activity principal (aloja el NavHostFragment)
 │       │   └── viewmodel/            # ViewModels (MVVM, `AppointmentViewModel`, `LoginViewModel`)

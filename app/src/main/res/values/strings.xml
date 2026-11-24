@@ -18,4 +18,8 @@
     <string name="login_biometric_cancel">Cancelar</string>
     <string name="login_biometric_unavailable_title">Biometría no disponible</string>
     <string name="login_biometric_unavailable_message">Este dispositivo no tiene sensor de huella o no hay huellas registradas.</string>
+
+    <!-- Toolbar & Nueva Cita (HU 3.0) -->
+    <string name="toolbar_back_description">Volver</string>
+    <string name="new_appointment_title">Nueva Cita</string>
 </resources>
