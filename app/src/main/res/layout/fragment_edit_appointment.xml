@@ -39,13 +39,6 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="32dp">
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/glSpinnerEnd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.62" />
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilPetName"
                     style="@style/Widget.DogApp.TextInputLayout.OutlinedBox"
@@ -144,27 +137,11 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Spinner
-                    android:id="@+id/spSymptoms"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    android:backgroundTint="@color/text_primary"
-                    android:contentDescription="@string/new_appointment_symptoms_description"
-                    android:minHeight="48dp"
-                    android:popupBackground="@color/white"
-                    android:spinnerMode="dropdown"
-                    android:theme="@style/ThemeOverlay.DogApp.Spinner"
-                    app:layout_constraintEnd_toStartOf="@id/glSpinnerEnd"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tilPhone" />
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnEditAppointment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="48dp"
+                    android:layout_marginTop="96dp"
                     android:enabled="false"
                     android:minWidth="184dp"
                     android:minHeight="52dp"
@@ -175,14 +152,14 @@
                     android:textSize="15sp"
                     app:backgroundTint="@color/accent_pink_disabled"
                     app:cornerRadius="28dp"
-                    app:icon="@drawable/ic_save"
+                    app:icon="@drawable/ic_edit"
                     app:iconGravity="textStart"
                     app:iconPadding="10dp"
                     app:iconSize="20dp"
                     app:iconTint="@color/text_primary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spSymptoms" />
+                    app:layout_constraintTop_toBottomOf="@id/tilPhone" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
