@@ -27,11 +27,7 @@ class AppointmentViewHolder(binding: ItemAppointmentBinding, navController: NavC
         bindingItem.cvAppointment.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("clave", appointment)
-            // TODO (HU 4.0 - Appointment Detail): once the detail fragment and the action
-            //  "action_homeFragment_to_detailFragment" exist in nav_graph.xml, uncomment the line below.
-            //  The detail fragment must read the appointment with:
-            //  arguments?.getSerializable("clave") as Appointment
-            // navController.navigate(R.id.action_homeFragment_to_detailFragment, bundle)
+            navController.navigate(R.id.action_homeFragment_to_detailFragment, bundle)
         }
     }
 }
