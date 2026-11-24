@@ -23,4 +23,5 @@
     <string name="toolbar_back_description">Volver</string>
     <string name="new_appointment_title">Nueva Cita</string>
     <string name="new_appointment_pet_name_hint">Nombre de la Mascota</string>
+    <string name="new_appointment_breed_hint">Raza</string>
 </resources>

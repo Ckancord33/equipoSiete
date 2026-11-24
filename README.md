@@ -122,13 +122,14 @@ erDiagram
 | `androidx.lifecycle:lifecycle-viewmodel-ktx` / `lifecycle-livedata-ktx` | `2.11.1` | ViewModels (`AndroidViewModel`, `viewModelScope`, `LiveData`) |
 | `androidx.fragment:fragment-ktx` | `1.9.1` | Extensiones para Fragments (`by viewModels()`) |
 | `com.github.bumptech.glide:glide` | `5.0.9` | Carga de la imagen circular de la mascota en los ítems de `HU 2.0` (5.0.10 requiere kotlin-stdlib 2.4, incompatible con el compilador Kotlin 2.2 que trae AGP) |
+| `com.squareup.retrofit2:retrofit` / `converter-gson` | `2.9.0` | Consumo de la API REST Dog CEO (`breeds/list/all` en `HU 3.0`) |
 | `com.airbnb.android:lottie` | `6.7.1` | Animación Lottie de huella en `HU 1.0` |
 | `androidx.biometric:biometric` | `1.1.0` | Autenticación con biometría dactilar (`BiometricPrompt`) en `HU 1.0` |
 | `junit:junit` | `4.13.2` | Pruebas unitarias locales |
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Retrofit + Gson y las pantallas de `HU 3.0`–`HU 5.0`.
+> **Por integrar durante el Sprint 1:** Resto del formulario/lógica de `HU 3.0` y las pantallas de `HU 4.0`–`HU 5.0`.
 
 ---
 
@@ -178,15 +179,16 @@ DogApp/
 │       ├── AndroidManifest.xml       # Manifiesto de la aplicación
 │       ├── java/com/example/dogapp/  # Código fuente Kotlin (arquitectura MVVM)
 │       │   ├── data/                 # Capa de datos (Room DAO, Database, API)
-│       │   ├── model/                # Modelos y entidades
+│       │   ├── model/                # Modelos y entidades (`Appointment`, `BreedsResponse`)
 │       │   ├── repository/           # Repositorios de datos (`AppointmentRepository`, `LoginRepository`)
-│       │   ├── utils/                # Utilidades y constantes
+│       │   ├── utils/                # Utilidades y constantes (`Constants`)
 │       │   ├── view/                 # Capa de interfaz de usuario
 │       │   │   ├── adapter/          # Adaptadores de RecyclerView (`AppointmentAdapter`)
 │       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`, `NewAppointmentFragment`)
 │       │   │   ├── viewholder/       # ViewHolders de RecyclerView (`AppointmentViewHolder`)
 │       │   │   └── MainActivity.kt   # Activity principal (aloja el NavHostFragment)
-│       │   └── viewmodel/            # ViewModels (MVVM, `AppointmentViewModel`, `LoginViewModel`)
+│       │   ├── viewmodel/            # ViewModels (MVVM, `AppointmentViewModel`, `LoginViewModel`)
+│       │   └── webservice/           # Cliente Retrofit (`ApiService`, `ApiUtils`, `RetrofitClient`)
 │       └── res/                      # Recursos (layouts, drawables, font, mipmaps, navigation, raw, values, xml)
 │           ├── font/                 # Fuentes tipográficas externas (`lilita_one_regular.ttf`)
 │           ├── layout/               # Layouts XML con Data Binding

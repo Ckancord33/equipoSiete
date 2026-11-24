@@ -18,10 +18,9 @@
     </style>
 
     <style name="Widget.DogApp.TextInputLayout.OutlinedBox" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/selector_input_box_stroke</item>
         <item name="boxStrokeWidth">1dp</item>
         <item name="boxStrokeWidthFocused">2dp</item>
-        <item name="hintTextColor">@color/input_focus_purple</item>
+        <item name="hintTextColor">@color/text_secondary</item>
         <item name="android:textColorHint">@color/text_secondary</item>
     </style>
 </resources>

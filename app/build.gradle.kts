@@ -60,6 +60,10 @@ dependencies {
     // Glide
     implementation(libs.glide)
 
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
 
