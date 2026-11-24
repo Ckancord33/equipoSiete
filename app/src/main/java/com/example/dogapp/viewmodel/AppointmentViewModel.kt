@@ -22,6 +22,21 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
     private val _progresState = MutableLiveData(false)
     val progresState: LiveData<Boolean> = _progresState
 
+    fun saveAppointment(appointment: Appointment, onSaved: () -> Unit) {
+        viewModelScope.launch {
+            _progresState.value = true
+            try {
+                val imageUrl = appointmentRepository.getDogImageByBreed(appointment.breed)
+                val appointmentWithImage = appointment.copy(imageUrl = imageUrl)
+                appointmentRepository.saveAppointment(appointmentWithImage)
+                _progresState.value = false
+                onSaved()
+            } catch (e: Exception) {
+                _progresState.value = false
+            }
+        }
+    }
+
     fun getListAppointment() {
         viewModelScope.launch {
             _progresState.value = true

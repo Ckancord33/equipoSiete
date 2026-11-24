@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dogapp.R
 import com.example.dogapp.databinding.FragmentNewAppointmentBinding
+import com.example.dogapp.model.Appointment
 import com.example.dogapp.utils.Constants
 import com.example.dogapp.viewmodel.AppointmentViewModel
 
@@ -69,9 +71,23 @@ class NewAppointmentFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                // TODO (HU 3.0 - Criterio 10): obtener imagen aleatoria por raza con Retrofit,
-                //  guardar la cita en Room y regresar a HomeFragment.
+                saveAppointment()
             }
+        }
+    }
+
+    private fun saveAppointment() {
+        val appointment = Appointment(
+            petName = binding.etPetName.text.toString().trim(),
+            breed = binding.atBreed.text.toString().trim(),
+            ownerName = binding.etOwnerName.text.toString().trim(),
+            phone = binding.etPhone.text.toString().trim(),
+            symptom = binding.spSymptoms.selectedItem.toString(),
+            imageUrl = ""
+        )
+        binding.btnSaveAppointment.isEnabled = false
+        appointmentViewModel.saveAppointment(appointment) {
+            findNavController().popBackStack()
         }
     }
 
@@ -92,19 +108,17 @@ class NewAppointmentFragment : Fragment() {
 
     private fun actualizarEstadoBotonGuardar(isEnabled: Boolean) {
         binding.btnSaveAppointment.isEnabled = isEnabled
-        
         val bgColor = if (isEnabled) R.color.accent_pink else R.color.accent_pink_disabled
         val textColor = if (isEnabled) R.color.white else R.color.text_secondary
-
         binding.btnSaveAppointment.backgroundTintList =
             ColorStateList.valueOf(ContextCompat.getColor(requireContext(), bgColor))
-
         binding.btnSaveAppointment.setTextColor(ContextCompat.getColor(requireContext(), textColor))
         binding.btnSaveAppointment.setTypeface(null, if (isEnabled) Typeface.BOLD else Typeface.NORMAL)
     }
 
     private fun observerViewModel() {
         observerListBreeds()
+        observerProgress()
     }
 
     private fun observerListBreeds() {
@@ -116,6 +130,12 @@ class NewAppointmentFragment : Fragment() {
                 listBreeds
             )
             binding.atBreed.setAdapter(adapter)
+        }
+    }
+
+    private fun observerProgress() {
+        appointmentViewModel.progresState.observe(viewLifecycleOwner) { status ->
+            binding.progress.isVisible = status
         }
     }
 }
