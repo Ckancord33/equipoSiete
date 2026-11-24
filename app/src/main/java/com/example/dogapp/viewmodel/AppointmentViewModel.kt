@@ -16,6 +16,9 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
     private val _listAppointment = MutableLiveData<MutableList<Appointment>>()
     val listAppointment: LiveData<MutableList<Appointment>> get() = _listAppointment
 
+    private val _listBreeds = MutableLiveData<MutableList<String>>()
+    val listBreeds: LiveData<MutableList<String>> get() = _listBreeds
+
     private val _progresState = MutableLiveData(false)
     val progresState: LiveData<Boolean> = _progresState
 
@@ -24,6 +27,18 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
             _progresState.value = true
             try {
                 _listAppointment.value = appointmentRepository.getListAppointment()
+                _progresState.value = false
+            } catch (e: Exception) {
+                _progresState.value = false
+            }
+        }
+    }
+
+    fun getBreeds() {
+        viewModelScope.launch {
+            _progresState.value = true
+            try {
+                _listBreeds.value = appointmentRepository.getBreeds()
                 _progresState.value = false
             } catch (e: Exception) {
                 _progresState.value = false
