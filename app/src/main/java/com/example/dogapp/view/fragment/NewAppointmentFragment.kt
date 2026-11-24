@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dogapp.R
 import com.example.dogapp.databinding.FragmentNewAppointmentBinding
+import com.example.dogapp.utils.Constants
 import com.example.dogapp.viewmodel.AppointmentViewModel
 
 class NewAppointmentFragment : Fragment() {
@@ -29,6 +30,7 @@ class NewAppointmentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
+        setupSymptomsSpinner()
         observerViewModel()
     }
 
@@ -37,6 +39,16 @@ class NewAppointmentFragment : Fragment() {
         binding.contentToolbar.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
+    }
+
+    private fun setupSymptomsSpinner() {
+        val adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            Constants.SYMPTOMS_LIST
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spSymptoms.adapter = adapter
     }
 
     private fun observerViewModel() {
