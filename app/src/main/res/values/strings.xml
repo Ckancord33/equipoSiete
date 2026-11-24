@@ -24,4 +24,9 @@
     <string name="new_appointment_title">Nueva Cita</string>
     <string name="new_appointment_pet_name_hint">Nombre de la Mascota</string>
     <string name="new_appointment_breed_hint">Raza</string>
+    <string name="new_appointment_owner_name_hint">Nombre del Propietario</string>
+    <string name="new_appointment_phone_hint">Teléfono</string>
+    <string name="new_appointment_symptoms_description">Seleccionar síntoma de la mascota</string>
+    <string name="new_appointment_save_button">Guardar Cita</string>
+    <string name="new_appointment_select_symptom_error">Selecciona un síntoma</string>
 </resources>

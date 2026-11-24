@@ -48,4 +48,15 @@ class AppointmentRepository(val context: Context) {
             }
         }
     }
+
+    suspend fun getDogImageByBreed(breed: String): String {
+        return withContext(Dispatchers.IO) {
+            try {
+                apiService.getBreedImage(breed.trim().lowercase()).message
+            } catch (e: Exception) {
+                e.printStackTrace()
+                ""
+            }
+        }
+    }
 }

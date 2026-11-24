@@ -23,4 +23,9 @@
         <item name="hintTextColor">@color/text_secondary</item>
         <item name="android:textColorHint">@color/text_secondary</item>
     </style>
+
+    <style name="ThemeOverlay.DogApp.Spinner" parent="">
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
 </resources>
