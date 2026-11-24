@@ -128,7 +128,7 @@ erDiagram
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Retrofit + Gson, el ícono personalizado `dogApp` de `HU 1.0` y las pantallas de `HU 3.0`–`HU 5.0`.
+> **Por integrar durante el Sprint 1:** Retrofit + Gson y las pantallas de `HU 3.0`–`HU 5.0`.
 
 ---
 
