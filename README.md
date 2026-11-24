@@ -98,7 +98,7 @@ erDiagram
 | Herramienta / SDK | Versión | Origen |
 |---|---|---|
 | Gradle | `9.9.2` | `gradle-wrapper.properties` |
-| Android Gradle Plugin (AGP) | `9.3.3` | `gradle/libs.versions.toml` |
+| Android Gradle Plugin (AGP) | `9.3.0` | `gradle/libs.versions.toml` |
 | Java Compatibility | `11` | `app/build.gradle.kts` |
 | `compileSdk` / `targetSdk` | `37` | `app/build.gradle.kts` |
 | `minSdk` | `24` (Android 7.0) | `app/build.gradle.kts` |
@@ -135,7 +135,7 @@ erDiagram
 
 ## Requisitos previos e Inicio rápido
 
-- **Android Studio** actualizado (compatible con AGP `9.3.3` y Gradle `9.9.2`)
+- **Android Studio** actualizado (compatible con AGP `9.3.0` y Gradle `9.9.2`)
 - **JDK 11+**
 - Dispositivo físico o emulador Android con **API 24+** (recomendado configurar huella digital en el emulador para probar `HU 1.0`)
 
