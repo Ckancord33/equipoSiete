@@ -73,4 +73,24 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
             }
         }
     }
+
+    fun updateAppointment(appointment: Appointment, breedChanged: Boolean = false, onUpdated: () -> Unit) {
+        viewModelScope.launch {
+            _progresState.value = true
+            try {
+                val imageUrl = if (breedChanged || appointment.imageUrl.isEmpty()) {
+                    val newUrl = appointmentRepository.getDogImageByBreed(appointment.breed)
+                    if (newUrl.isNotEmpty()) newUrl else appointment.imageUrl
+                } else {
+                    appointment.imageUrl
+                }
+                val updatedAppointment = appointment.copy(imageUrl = imageUrl)
+                appointmentRepository.updateAppointment(updatedAppointment)
+                _progresState.value = false
+                onUpdated()
+            } catch (e: Exception) {
+                _progresState.value = false
+            }
+        }
+    }
 }
