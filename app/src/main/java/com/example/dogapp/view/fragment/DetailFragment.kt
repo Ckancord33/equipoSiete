@@ -96,7 +96,11 @@ class DetailFragment : Fragment() {
     }
 
     private fun editarCita() {
-        // TODO (HU 5.0 - Edit Appointment): navigate to EditAppointmentFragment passing the appointment bundle.
+        appointment?.let { item ->
+            val bundle = Bundle()
+            bundle.putSerializable("clave", item)
+            findNavController().navigate(R.id.action_detailFragment_to_editAppointmentFragment, bundle)
+        }
     }
 
     private fun observerViewModel() {
