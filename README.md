@@ -98,7 +98,7 @@ erDiagram
 | Herramienta / SDK | Versión | Origen |
 |---|---|---|
 | Gradle | `9.9.2` | `gradle-wrapper.properties` |
-| Android Gradle Plugin (AGP) | `9.3.3` | `gradle/libs.versions.toml` |
+| Android Gradle Plugin (AGP) | `9.3.0` | `gradle/libs.versions.toml` |
 | Java Compatibility | `11` | `app/build.gradle.kts` |
 | `compileSdk` / `targetSdk` | `37` | `app/build.gradle.kts` |
 | `minSdk` | `24` (Android 7.0) | `app/build.gradle.kts` |
@@ -129,13 +129,13 @@ erDiagram
 | `androidx.test.ext:junit` | `1.3.0` | Extensiones JUnit para instrumentación |
 | `androidx.test.espresso:espresso-core` | `3.7.0` | Pruebas de UI |
 
-> **Por integrar durante el Sprint 1:** Pantallas y flujo de `HU 4.0` y `HU 5.0`.
+> **Sprint 1 completado:** Integradas exitosamente todas las Historias de Usuario (HU 1.0 a HU 5.0).
 
 ---
 
 ## Requisitos previos e Inicio rápido
 
-- **Android Studio** actualizado (compatible con AGP `9.3.3` y Gradle `9.9.2`)
+- **Android Studio** actualizado (compatible con AGP `9.3.0` y Gradle `9.9.2`)
 - **JDK 11+**
 - Dispositivo físico o emulador Android con **API 24+** (recomendado configurar huella digital en el emulador para probar `HU 1.0`)
 
@@ -184,7 +184,7 @@ DogApp/
 │       │   ├── utils/                # Utilidades y constantes (`Constants`)
 │       │   ├── view/                 # Capa de interfaz de usuario
 │       │   │   ├── adapter/          # Adaptadores de RecyclerView (`AppointmentAdapter`)
-│       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`, `NewAppointmentFragment`)
+│       │   │   ├── fragment/         # Fragments de navegación (`LoginFragment`, `HomeFragment`, `NewAppointmentFragment`, `DetailFragment`, `EditAppointmentFragment`)
 │       │   │   ├── viewholder/       # ViewHolders de RecyclerView (`AppointmentViewHolder`)
 │       │   │   └── MainActivity.kt   # Activity principal (aloja el NavHostFragment)
 │       │   ├── viewmodel/            # ViewModels (MVVM, `AppointmentViewModel`, `LoginViewModel`)

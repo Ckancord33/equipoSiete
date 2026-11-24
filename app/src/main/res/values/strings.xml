@@ -29,4 +29,21 @@
     <string name="new_appointment_symptoms_description">Seleccionar síntoma de la mascota</string>
     <string name="new_appointment_save_button">Guardar Cita</string>
     <string name="new_appointment_select_symptom_error">Selecciona un síntoma</string>
+
+    <!-- Detalle de la Cita (HU 4.0) -->
+    <string name="detail_symptom_label">Síntoma:</string>
+    <string name="detail_owner_label">Propietario:</string>
+    <string name="detail_phone_label">Teléfono:</string>
+    <string name="detail_delete_description">Eliminar cita</string>
+    <string name="detail_edit_description">Editar cita</string>
+    <string name="detail_delete_dialog_title">Eliminar cita</string>
+    <string name="detail_delete_dialog_message">¿Estás seguro de que deseas eliminar esta cita?</string>
+    <string name="detail_delete_dialog_confirm">Eliminar</string>
+    <string name="detail_delete_dialog_cancel">Cancelar</string>
+    <string name="detail_delete_success">Cita eliminada correctamente</string>
+
+    <!-- Editar Cita (HU 5.0) -->
+    <string name="edit_appointment_title">Editar Cita</string>
+    <string name="edit_appointment_button">Editar Cita</string>
+    <string name="edit_appointment_success">Cita actualizada correctamente</string>
 </resources>
